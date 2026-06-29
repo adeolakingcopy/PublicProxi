@@ -1,0 +1,110 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"/><meta name="viewport" content="width=device-width,initial-scale=1.0"/><title>Blog — PublicProxi</title><link rel="preconnect" href="https://fonts.googleapis.com"/><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/><link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,700;0,9..144,900;1,9..144,300;1,9..144,700&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet"/><link rel="stylesheet" href="shared.css"/>
+<style>
+.page-top{padding-top:100px}
+.web-radial{position:absolute;inset:0;pointer-events:none;z-index:0;opacity:.15;display:flex;align-items:center;justify-content:center}
+.web-radial svg{width:130%;height:130%;position:absolute;top:50%;left:50%;transform:translate(-50%,-50%)}
+.wc{position:absolute;pointer-events:none;z-index:0}
+.wc-tr{top:0;right:0;width:180px;height:180px;opacity:.2}
+.wc-bl{bottom:0;left:0;width:160px;height:160px;opacity:.2}
+/* HERO */
+.g-blog-hero{display:grid;grid-template-columns:1.5fr 1fr;gap:10px;margin-bottom:12px}
+.t-blog-hl{background:var(--void);position:relative;overflow:hidden}
+.t-blog-hl .ti{justify-content:flex-end;min-height:240px}
+.blog-h{font-family:'Fraunces',serif;font-size:clamp(2.5rem,4.5vw,4.5rem);font-weight:900;letter-spacing:-.04em;line-height:.94;margin-bottom:12px}
+.blog-h em{font-style:italic;color:var(--signal)}
+.blog-sub{font-size:.88rem;color:var(--muted);font-weight:300;line-height:1.65;max-width:280px}
+/* FEATURED */
+.t-featured{background:var(--lift);position:relative;overflow:hidden}
+.t-featured .ti{justify-content:space-between;min-height:240px}
+.feat-cat{font-size:.66rem;font-weight:500;letter-spacing:.1em;text-transform:uppercase;color:var(--signal);margin-bottom:10px}
+.feat-h{font-family:'Fraunces',serif;font-size:1.4rem;font-weight:700;letter-spacing:-.02em;line-height:1.1;margin-bottom:10px}
+.feat-p{font-size:.8rem;color:var(--muted);line-height:1.6;font-weight:300;margin-bottom:16px}
+.feat-meta{font-size:.7rem;color:var(--muted)}
+.read-link{font-size:.78rem;color:var(--signal);text-decoration:none;border-bottom:1px solid var(--signal);padding-bottom:1px}
+/* CATEGORY FILTER */
+.cat-scroll{display:flex;gap:7px;overflow-x:auto;padding:4px 0 10px;scrollbar-width:none;margin-bottom:12px}
+.cat-scroll::-webkit-scrollbar{display:none}
+.cc{flex-shrink:0;font-size:.72rem;font-weight:500;letter-spacing:.04em;padding:7px 16px;border:1px solid var(--rule);border-radius:100px;color:var(--muted);cursor:pointer;transition:all .2s;white-space:nowrap;text-transform:uppercase}
+.cc:hover,.cc.on{border-color:var(--signal);color:var(--signal);background:rgba(248,254,6,.06)}
+/* GRID */
+.g-articles{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-bottom:12px}
+.article{background:var(--surface);border:1px solid var(--rule);border-radius:var(--radius);padding:28px;position:relative;overflow:hidden;text-decoration:none;color:inherit;display:flex;flex-direction:column;transition:background .2s}
+.article::after{content:'';position:absolute;bottom:0;left:0;right:0;height:2px;background:var(--signal);transform:scaleX(0);transition:transform .3s;transform-origin:left}
+.article:hover{background:var(--lift)}.article:hover::after{transform:scaleX(1)}
+.art-cat{font-size:.64rem;font-weight:500;letter-spacing:.1em;text-transform:uppercase;color:var(--signal);margin-bottom:10px}
+.art-h{font-family:'Fraunces',serif;font-size:1.05rem;font-weight:700;letter-spacing:-.01em;line-height:1.2;margin-bottom:10px}
+.art-p{font-size:.78rem;color:var(--muted);line-height:1.6;font-weight:300;margin-bottom:14px;flex:1}
+.art-meta{display:flex;justify-content:space-between;font-size:.68rem;color:var(--muted)}
+.art-time{color:var(--signal)}
+/* NEWSLETTER */
+.t-nl{background:var(--signal);border-radius:var(--radius);padding:40px;display:flex;align-items:center;justify-content:space-between;gap:24px;position:relative;overflow:hidden}
+.nl-h{font-family:'Fraunces',serif;font-size:2rem;font-weight:900;line-height:.96;letter-spacing:-.03em;color:var(--void)}
+.nl-h em{font-style:italic}
+.nl-form{display:flex;gap:0;background:rgba(2,48,30,.1);border:1px solid rgba(2,48,30,.2);border-radius:100px;overflow:hidden;min-width:320px}
+.nl-form input{flex:1;background:transparent;border:none;outline:none;color:var(--void);font-family:'DM Sans',sans-serif;font-size:.88rem;padding:13px 18px}
+.nl-form input::placeholder{color:rgba(2,48,30,.5)}
+.nl-form button{background:var(--void);border:none;color:var(--signal);font-family:'DM Sans',sans-serif;font-size:.78rem;font-weight:500;padding:13px 22px;cursor:pointer;border-radius:0 100px 100px 0;transition:opacity .2s}
+.nl-form button:hover{opacity:.85}
+@media(max-width:900px){
+  .g-blog-hero{grid-template-columns:1fr}
+  .g-articles{grid-template-columns:1fr 1fr}
+  .t-nl{flex-direction:column;align-items:flex-start}
+  .nl-form{min-width:100%;width:100%}
+}
+</style></head><body>
+<svg width="0" height="0" style="position:absolute"><defs>
+<symbol id="wf" viewBox="0 0 400 400"><g fill="none" stroke="#0A5C38" stroke-width="1"><line x1="200" y1="200" x2="200" y2="20"/><line x1="200" y1="200" x2="327" y2="73"/><line x1="200" y1="200" x2="380" y2="200"/><line x1="200" y1="200" x2="327" y2="327"/><line x1="200" y1="200" x2="200" y2="380"/><line x1="200" y1="200" x2="73" y2="327"/><line x1="200" y1="200" x2="20" y2="200"/><line x1="200" y1="200" x2="73" y2="73"/><polygon points="200,164 227,177 236,207 218,230 182,230 164,207 173,177"/><polygon points="200,128 254,154 272,214 236,258 164,258 128,214 146,154"/></g></symbol>
+<symbol id="wtr" viewBox="0 0 200 200"><g fill="none" stroke="#0A5C38" stroke-width="1"><line x1="200" y1="0" x2="0" y2="200"/><line x1="200" y1="0" x2="60" y2="200"/><line x1="200" y1="0" x2="140" y2="200"/><line x1="200" y1="0" x2="200" y2="200"/><line x1="200" y1="0" x2="0" y2="60"/><line x1="200" y1="0" x2="0" y2="130"/><polyline points="40,0 20,20 0,40"/><polyline points="90,0 60,10 30,30 10,60 0,90"/><polyline points="145,0 115,22 88,48 62,76 40,106 20,138 0,170"/></g></symbol>
+<symbol id="wbl" viewBox="0 0 200 200"><g fill="none" stroke="#0A5C38" stroke-width="1"><line x1="0" y1="200" x2="200" y2="0"/><line x1="0" y1="200" x2="140" y2="0"/><line x1="0" y1="200" x2="60" y2="0"/><line x1="0" y1="200" x2="0" y2="0"/><line x1="0" y1="200" x2="200" y2="140"/><line x1="0" y1="200" x2="200" y2="70"/><polyline points="0,160 20,180 40,200"/><polyline points="0,110 10,140 30,170 60,190 90,200"/><polyline points="0,60 12,90 32,120 58,145 86,164 114,178 148,188 180,196 200,200"/></g></symbol>
+</defs></svg>
+<nav id="nav"><a href="index.html" class="logo">Public<em>Proxi</em></a><ul class="nav-links"><li><a href="search.html">Search</a></li><li><a href="how-it-works.html">How It Works</a></li><li><a href="pricing.html">Pricing</a></li><li><a href="about.html">About</a></li><li><a href="search.html" class="nav-pill">Claim Profile →</a></li></ul></nav>
+<div class="page"><div class="page-top">
+<div class="g-blog-hero">
+  <div class="tile t-blog-hl">
+    <div class="web-radial"><svg><use href="#wf"/></svg></div>
+    <div class="ti">
+      <div class="eyebrow">The PublicProxi Blog</div>
+      <h1 class="blog-h">On the<br>search <em>web.</em></h1>
+      <p class="blog-sub">How to build visibility, win clients, and earn from your name.</p>
+    </div>
+  </div>
+  <div class="tile t-featured fu">
+    <div class="wc wc-tr"><svg width="100%" height="100%"><use href="#wtr"/></svg></div>
+    <div class="ti">
+      <div>
+        <div class="feat-cat">Featured · For Talent</div>
+        <div class="feat-h">Why the Best MCs Aren't Always the Most Booked Ones</div>
+        <p class="feat-p">Visibility in the events industry has always rewarded the loudest, not the best. Here's how search is changing that.</p>
+        <div class="feat-meta">Nadia Kamara · June 14, 2026</div>
+      </div>
+      <a href="#" class="read-link">Read this →</a>
+    </div>
+  </div>
+</div>
+<!-- CATS -->
+<div class="cat-scroll">
+  <div class="cc on">All</div><div class="cc">For Talent</div><div class="cc">For Companies</div><div class="cc">Platform Updates</div><div class="cc">Voiceover</div><div class="cc">MC / Speaking</div><div class="cc">Digital Creatives</div>
+</div>
+<!-- ARTICLES -->
+<div class="g-articles">
+  <a href="#" class="article fu"><div class="art-cat">For Talent</div><div class="art-h">The 5 Profile Fields That Determine Your Google Ranking</div><p class="art-p">Most people fill in the obvious fields. The highest-impact sections get left blank. Here's what actually matters.</p><div class="art-meta"><span>May 28, 2026</span><span class="art-time">6 min</span></div></a>
+  <a href="#" class="article fu"><div class="art-cat">Voiceover</div><div class="art-h">How Voiceover Artists Can Win Clients Without an Agent</div><p class="art-p">Agencies take 30–40%. A well-indexed public profile costs nothing and works 24/7. Here's the playbook.</p><div class="art-meta"><span>May 19, 2026</span><span class="art-time">8 min</span></div></a>
+  <a href="#" class="article fu"><div class="art-cat">MC / Speaking</div><div class="art-h">Your Google Presence Is Your Portfolio</div><p class="art-p">Event planners search before they call. What do they find when they type your name? A guide for MCs and speakers.</p><div class="art-meta"><span>May 7, 2026</span><span class="art-time">5 min</span></div></a>
+  <a href="#" class="article fu"><div class="art-cat">For Companies</div><div class="art-h">How to Write a Brief That Gets Quality Responses</div><p class="art-p">Vague briefs get vague responses. Describe outcomes, not job descriptions.</p><div class="art-meta"><span>Apr 22, 2026</span><span class="art-time">4 min</span></div></a>
+  <a href="#" class="article fu"><div class="art-cat">Platform Updates</div><div class="art-h">Introducing Discovery Analytics: See Exactly How You're Found</div><p class="art-p">Signal plan users can now see which searches surface their profile, how many views they got, and ranking trends.</p><div class="art-meta"><span>Apr 10, 2026</span><span class="art-time">3 min</span></div></a>
+  <a href="#" class="article fu"><div class="art-cat">For Talent</div><div class="art-h">Niche vs. Generalist: Which Gets More Inbound?</div><p class="art-p">Six months of search data across 60,000 profiles. The results changed how we think about positioning.</p><div class="art-meta"><span>Mar 31, 2026</span><span class="art-time">10 min</span></div></a>
+</div>
+<!-- NEWSLETTER -->
+<div class="t-nl fu">
+  <div class="wc wc-bl" style="opacity:.08"><svg width="100%" height="100%" style="stroke:#02301E"><use href="#wbl"/></svg></div>
+  <div class="nl-h" style="position:relative;z-index:1">Stay on<br><em>the web.</em></div>
+  <div class="nl-form" style="position:relative;z-index:1">
+    <input type="email" placeholder="your@email.com"/>
+    <button>Subscribe →</button>
+  </div>
+</div>
+</div></div>
+<footer class="pp-footer"><div><a href="index.html" class="fl">Public<em>Proxi</em></a><p class="ft">Get your name on the search web.</p></div><div class="fc"><h4>Platform</h4><ul><li><a href="search.html">Search</a></li><li><a href="how-it-works.html">How It Works</a></li><li><a href="pricing.html">Pricing</a></li></ul></div><div class="fc"><h4>Companies</h4><ul><li><a href="post-brief.html">Post a Brief</a></li></ul></div><div class="fc"><h4>Company</h4><ul><li><a href="about.html">About</a></li><li><a href="blog.html">Blog</a></li><li><a href="contact.html">Contact</a></li></ul></div></footer>
+<div class="pp-fb"><p>© 2026 PublicProxi</p><p>No commissions. Ever.</p></div>
+<script>const nav=document.getElementById('nav');window.addEventListener('scroll',()=>nav.classList.toggle('scrolled',scrollY>60));const obs=new IntersectionObserver(e=>e.forEach(x=>{if(x.isIntersecting)x.target.classList.add('on')}),{threshold:.07});document.querySelectorAll('.fu').forEach(el=>obs.observe(el));document.querySelectorAll('.cc').forEach(c=>{c.addEventListener('click',()=>{document.querySelectorAll('.cc').forEach(x=>x.classList.remove('on'));c.classList.add('on')});});</script>
+</body></html>

@@ -1,0 +1,127 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"/><meta name="viewport" content="width=device-width,initial-scale=1.0"/><title>Post a Brief — PublicProxi</title><link rel="preconnect" href="https://fonts.googleapis.com"/><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/><link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,700;0,9..144,900;1,9..144,300;1,9..144,700&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet"/><link rel="stylesheet" href="shared.css"/>
+<style>
+.page-top{padding-top:100px}
+.web-radial{position:absolute;inset:0;pointer-events:none;z-index:0;opacity:.15;display:flex;align-items:center;justify-content:center}
+.web-radial svg{width:130%;height:130%;position:absolute;top:50%;left:50%;transform:translate(-50%,-50%)}
+.wc{position:absolute;pointer-events:none;z-index:0}
+.wc-tr{top:0;right:0;width:180px;height:180px;opacity:.2}
+.wc-bl{bottom:0;left:0;width:160px;height:160px;opacity:.2}
+.g-brief{display:grid;grid-template-columns:1fr 1.4fr;gap:10px;align-items:start}
+/* LEFT INFO */
+.brief-left{display:flex;flex-direction:column;gap:10px}
+.t-bl-hl{background:var(--void);border-radius:var(--radius);border:1px solid var(--rule);position:relative;overflow:hidden}
+.t-bl-hl .ti{min-height:280px;justify-content:flex-end}
+.bl-h{font-family:'Fraunces',serif;font-size:clamp(2.5rem,4vw,4rem);font-weight:900;letter-spacing:-.04em;line-height:.94;margin-bottom:12px}
+.bl-h em{font-style:italic;color:var(--signal)}
+.bl-p{font-size:.85rem;color:var(--muted);font-weight:300;line-height:1.65;max-width:260px}
+.step-row{display:flex;gap:14px;padding:16px 0;border-bottom:1px solid var(--rule)}
+.step-row:last-child{border-bottom:none}
+.step-n{font-family:'Fraunces',serif;font-size:1.4rem;font-weight:700;color:var(--signal);flex-shrink:0;width:24px;line-height:1.1}
+.step-title{font-size:.88rem;font-weight:500;margin-bottom:3px}
+.step-body{font-size:.78rem;color:var(--muted);font-weight:300;line-height:1.55}
+.t-stats-row{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.t-sml{background:var(--surface);border:1px solid var(--rule);border-radius:var(--radius);padding:20px}
+.sml-n{font-family:'Fraunces',serif;font-size:2rem;font-weight:900;letter-spacing:-.03em;line-height:1;margin-bottom:3px}
+.sml-n em{font-style:normal;color:var(--signal)}
+.sml-l{font-size:.65rem;color:var(--muted);text-transform:uppercase;letter-spacing:.07em}
+/* RIGHT FORM */
+.t-form{background:var(--surface);border:1px solid var(--rule);border-radius:var(--radius);padding:36px;position:relative;overflow:hidden}
+.form-h{font-family:'Fraunces',serif;font-size:1.5rem;font-weight:700;letter-spacing:-.02em;margin-bottom:6px}
+.form-sub{font-size:.82rem;color:var(--muted);font-weight:300;margin-bottom:28px}
+.fg{margin-bottom:18px}
+.fg label{display:block;font-size:.66rem;font-weight:500;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin-bottom:8px}
+.fg input,.fg textarea,.fg select{width:100%;background:var(--lift);border:1px solid var(--rule);border-radius:8px;color:var(--text);font-family:'DM Sans',sans-serif;font-size:.88rem;padding:12px 14px;outline:none;transition:border-color .2s,box-shadow .2s;-webkit-appearance:none}
+.fg input:focus,.fg textarea:focus,.fg select:focus{border-color:var(--signal);box-shadow:0 0 0 3px rgba(248,254,6,.08)}
+.fg input::placeholder,.fg textarea::placeholder{color:var(--muted)}
+.fg textarea{resize:vertical;min-height:100px;line-height:1.55}
+.fg select option{background:var(--surface)}
+.fg-row{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.chip-wrap{display:flex;flex-wrap:wrap;gap:6px;margin-top:8px}
+.chip{font-size:.68rem;font-weight:500;padding:5px 12px;border:1px solid var(--rule);border-radius:100px;color:var(--muted);cursor:pointer;transition:all .2s;text-transform:uppercase;letter-spacing:.04em}
+.chip:hover,.chip.on{border-color:var(--signal);color:var(--signal);background:rgba(248,254,6,.06)}
+.sub-btn{width:100%;padding:14px;background:var(--signal);color:var(--void);border:none;border-radius:100px;font-family:'DM Sans',sans-serif;font-size:.88rem;font-weight:500;cursor:pointer;transition:opacity .2s;margin-top:6px}
+.sub-btn:hover{opacity:.88}
+.form-note{font-size:.72rem;color:var(--muted);text-align:center;margin-top:12px;font-weight:300}
+.success{display:none;text-align:center;padding:40px 0}
+.success-icon{width:56px;height:56px;border-radius:50%;background:rgba(2,197,122,.1);border:1px solid rgba(2,197,122,.3);display:flex;align-items:center;justify-content:center;margin:0 auto 20px;font-size:1.4rem}
+.success h3{font-family:'Fraunces',serif;font-size:1.8rem;font-weight:700;margin-bottom:10px}
+.success p{font-size:.85rem;color:var(--muted);font-weight:300;line-height:1.65}
+@media(max-width:900px){.g-brief{grid-template-columns:1fr}.fg-row{grid-template-columns:1fr}}
+</style></head><body>
+<svg width="0" height="0" style="position:absolute"><defs>
+<symbol id="wf" viewBox="0 0 400 400"><g fill="none" stroke="#0A5C38" stroke-width="1"><line x1="200" y1="200" x2="200" y2="20"/><line x1="200" y1="200" x2="327" y2="73"/><line x1="200" y1="200" x2="380" y2="200"/><line x1="200" y1="200" x2="327" y2="327"/><line x1="200" y1="200" x2="200" y2="380"/><line x1="200" y1="200" x2="73" y2="327"/><line x1="200" y1="200" x2="20" y2="200"/><line x1="200" y1="200" x2="73" y2="73"/><polygon points="200,164 227,177 236,207 218,230 182,230 164,207 173,177"/><polygon points="200,128 254,154 272,214 236,258 164,258 128,214 146,154"/></g></symbol>
+<symbol id="wtr" viewBox="0 0 200 200"><g fill="none" stroke="#0A5C38" stroke-width="1"><line x1="200" y1="0" x2="0" y2="200"/><line x1="200" y1="0" x2="60" y2="200"/><line x1="200" y1="0" x2="140" y2="200"/><line x1="200" y1="0" x2="200" y2="200"/><line x1="200" y1="0" x2="0" y2="60"/><line x1="200" y1="0" x2="0" y2="130"/><polyline points="40,0 20,20 0,40"/><polyline points="90,0 60,10 30,30 10,60 0,90"/><polyline points="145,0 115,22 88,48 62,76 40,106 20,138 0,170"/></g></symbol>
+<symbol id="wbl" viewBox="0 0 200 200"><g fill="none" stroke="#0A5C38" stroke-width="1"><line x1="0" y1="200" x2="200" y2="0"/><line x1="0" y1="200" x2="140" y2="0"/><line x1="0" y1="200" x2="60" y2="0"/><line x1="0" y1="200" x2="0" y2="0"/><line x1="0" y1="200" x2="200" y2="140"/><line x1="0" y1="200" x2="200" y2="70"/><polyline points="0,160 20,180 40,200"/><polyline points="0,110 10,140 30,170 60,190 90,200"/><polyline points="0,60 12,90 32,120 58,145 86,164 114,178 148,188 180,196 200,200"/></g></symbol>
+</defs></svg>
+<nav id="nav"><a href="index.html" class="logo">Public<em>Proxi</em></a><ul class="nav-links"><li><a href="search.html">Search</a></li><li><a href="how-it-works.html">How It Works</a></li><li><a href="pricing.html">Pricing</a></li><li><a href="about.html">About</a></li><li><a href="search.html" class="nav-pill">Claim Profile →</a></li></ul></nav>
+<div class="page"><div class="page-top">
+<div class="g-brief">
+  <div class="brief-left">
+    <div class="t-bl-hl">
+      <div class="web-radial"><svg><use href="#wf"/></svg></div>
+      <div class="ti">
+        <div class="eyebrow">For Companies</div>
+        <h1 class="bl-h">Tell us<br>who you<br><em>need.</em></h1>
+        <p class="bl-p">Post a brief. We match it to people on the search web. You get responses in 24 hours.</p>
+      </div>
+    </div>
+    <div class="tile fu" style="background:var(--lift);padding:28px">
+      <div class="wc wc-bl"><svg width="100%" height="100%"><use href="#wbl"/></svg></div>
+      <div style="position:relative;z-index:1">
+        <div class="step-row"><div class="step-n">1</div><div><div class="step-title">Describe what you need</div><p class="step-body">Role, skills, location, timeline. 5 minutes to fill in.</p></div></div>
+        <div class="step-row"><div class="step-n">2</div><div><div class="step-title">We match and notify</div><p class="step-body">Your brief reaches matching people on the search web. They choose to respond.</p></div></div>
+        <div class="step-row"><div class="step-n">3</div><div><div class="step-title">Review and connect</div><p class="step-body">Browse responses. Reach out directly. No middleman.</p></div></div>
+        <div class="step-row"><div class="step-n">4</div><div><div class="step-title">Hire directly. Keep everything.</div><p class="step-body">No commission, no agency markup. Just a direct working relationship.</p></div></div>
+      </div>
+    </div>
+    <div class="t-stats-row">
+      <div class="t-sml fu"><div class="sml-n">24<em>hr</em></div><div class="sml-l">Avg first response</div></div>
+      <div class="t-sml fu" style="background:var(--signal)"><div class="sml-n" style="color:var(--void)">0<em style="color:var(--void)">%</em></div><div class="sml-l" style="color:rgba(2,48,30,.55)">Commission</div></div>
+    </div>
+  </div>
+  <div class="t-form fu">
+    <div class="wc wc-tr"><svg width="100%" height="100%"><use href="#wtr"/></svg></div>
+    <div id="form-area" style="position:relative;z-index:1">
+      <div class="form-h">Post Your Brief</div>
+      <p class="form-sub">Free to post. Responses in 24 hours.</p>
+      <div class="fg"><label>Company</label><input type="text" placeholder="e.g. Nourish Foods Ltd"/></div>
+      <div class="fg-row">
+        <div class="fg"><label>Your Name</label><input type="text" placeholder="First Last"/></div>
+        <div class="fg"><label>Work Email</label><input type="email" placeholder="you@company.com"/></div>
+      </div>
+      <div class="fg"><label>Who do you need?</label>
+        <select><option value="">Select a category…</option><option>MC / Event Host</option><option>Voiceover Artist</option><option>Public Speaker</option><option>Video Editor</option><option>Motion Designer</option><option>Photographer</option><option>Sound Designer</option><option>Podcast Producer</option><option>Copywriter</option><option>UX / UI Designer</option><option>Web Developer</option><option>Brand Strategist</option><option>Coach / Consultant</option><option>Other</option></select>
+      </div>
+      <div class="fg"><label>Key Skills</label>
+        <div class="chip-wrap">
+          <span class="chip" onclick="this.classList.toggle('on')">Bilingual</span>
+          <span class="chip" onclick="this.classList.toggle('on')">Remote</span>
+          <span class="chip" onclick="this.classList.toggle('on')">Lagos-based</span>
+          <span class="chip" onclick="this.classList.toggle('on')">Commercial VO</span>
+          <span class="chip" onclick="this.classList.toggle('on')">Corporate Events</span>
+          <span class="chip" onclick="this.classList.toggle('on')">Short-form Video</span>
+          <span class="chip" onclick="this.classList.toggle('on')">After Effects</span>
+          <span class="chip" onclick="this.classList.toggle('on')">Podcast Audio</span>
+        </div>
+      </div>
+      <div class="fg-row">
+        <div class="fg"><label>Engagement Type</label><select><option>Project-based</option><option>Retainer</option><option>Full-time</option><option>One-off</option></select></div>
+        <div class="fg"><label>Budget</label><select><option>Under ₦100k</option><option>₦100k–₦500k</option><option>₦500k+</option><option>$50–$200/hr</option><option>$200+/hr</option></select></div>
+      </div>
+      <div class="fg"><label>Describe the brief</label><textarea placeholder="What do you need, and what does success look like?"></textarea></div>
+      <button class="sub-btn" onclick="document.getElementById('form-area').style.display='none';document.getElementById('success').style.display='block'">Post Brief →</button>
+      <p class="form-note">Free to post. No commitment. We'll email matches within 24 hours.</p>
+    </div>
+    <div class="success" id="success">
+      <div class="success-icon">✓</div>
+      <h3>Brief Posted.</h3>
+      <p>We'll match and notify the right people. Expect responses in your inbox within 24 hours.</p>
+      <a href="search.html" style="display:inline-block;margin-top:20px;font-size:.82rem;color:var(--signal);text-decoration:none;border-bottom:1px solid var(--signal);padding-bottom:2px">Or search now →</a>
+    </div>
+  </div>
+</div>
+</div></div>
+<footer class="pp-footer"><div><a href="index.html" class="fl">Public<em>Proxi</em></a><p class="ft">Get your name on the search web.</p></div><div class="fc"><h4>Platform</h4><ul><li><a href="search.html">Search</a></li><li><a href="how-it-works.html">How It Works</a></li><li><a href="pricing.html">Pricing</a></li></ul></div><div class="fc"><h4>Companies</h4><ul><li><a href="post-brief.html">Post a Brief</a></li></ul></div><div class="fc"><h4>Company</h4><ul><li><a href="about.html">About</a></li><li><a href="blog.html">Blog</a></li><li><a href="contact.html">Contact</a></li></ul></div></footer>
+<div class="pp-fb"><p>© 2026 PublicProxi</p><p>No commissions. Ever.</p></div>
+<script>const nav=document.getElementById('nav');window.addEventListener('scroll',()=>nav.classList.toggle('scrolled',scrollY>60));const obs=new IntersectionObserver(e=>e.forEach(x=>{if(x.isIntersecting)x.target.classList.add('on')}),{threshold:.07});document.querySelectorAll('.fu').forEach(el=>obs.observe(el));</script>
+</body></html>

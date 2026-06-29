@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/><meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>Emeka Obi — MC / Event Host · PublicProxi</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"/><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,700;0,9..144,900;1,9..144,300;1,9..144,700&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet"/>
+<link rel="stylesheet" href="shared.css"/>
+<style>
+.page-top{padding-top:100px}
+/* PROFILE HERO BENTO */
+.g-profile-hero{display:grid;grid-template-columns:1.6fr 1fr 1fr;grid-template-rows:auto auto;gap:10px;margin-bottom:12px}
+/* identity tile */
+.t-pid{grid-column:1;grid-row:1/3;background:var(--void);position:relative;overflow:hidden}
+.t-pid .ti{justify-content:flex-end;min-height:400px}
+.web-radial{position:absolute;inset:0;pointer-events:none;z-index:0;opacity:.15;display:flex;align-items:center;justify-content:center}
+.web-radial svg{width:130%;height:130%;position:absolute;top:50%;left:50%;transform:translate(-50%,-50%)}
+.prof-avi{width:60px;height:60px;border-radius:50%;background:var(--lift);border:2px solid var(--rule);display:flex;align-items:center;justify-content:center;font-family:'Fraunces',serif;font-size:1.4rem;font-weight:700;margin-bottom:18px}
+.prof-name{font-family:'Fraunces',serif;font-size:clamp(2.2rem,4vw,3.5rem);font-weight:900;letter-spacing:-.04em;line-height:.96;margin-bottom:8px}
+.prof-role{font-size:.85rem;color:var(--signal);font-weight:500;letter-spacing:.03em;margin-bottom:6px}
+.prof-loc{font-size:.78rem;color:var(--muted);display:flex;align-items:center;gap:6px;margin-bottom:20px}
+.dot{width:5px;height:5px;border-radius:50%;background:var(--deep)}
+.prof-tags{display:flex;flex-wrap:wrap;gap:5px}
+.pt{font-size:.62rem;font-weight:500;letter-spacing:.04em;padding:4px 10px;border:1px solid var(--rule);border-radius:100px;color:var(--muted);text-transform:uppercase}
+/* contact tile */
+.t-pctc{grid-column:2;grid-row:1;background:var(--signal);position:relative;overflow:hidden}
+.t-pctc .ti{justify-content:space-between;min-height:160px}
+.pctc-h{font-family:'Fraunces',serif;font-size:1.6rem;font-weight:900;line-height:.96;letter-spacing:-.03em;color:var(--void)}
+.pctc-h em{font-style:italic}
+.b-void{background:var(--void);color:var(--signal);display:inline-block;text-decoration:none;font-family:'DM Sans',sans-serif;font-size:.8rem;font-weight:500;padding:10px 20px;border-radius:100px;transition:opacity .2s}
+.b-void:hover{opacity:.85}
+/* rate tile */
+.t-prate{grid-column:3;grid-row:1;background:var(--lift)}
+.t-prate .ti{justify-content:space-between;min-height:160px}
+.rate-big{font-family:'Fraunces',serif;font-size:2.4rem;font-weight:900;letter-spacing:-.04em;line-height:1;color:var(--text)}
+.rate-label{font-size:.66rem;color:var(--muted);text-transform:uppercase;letter-spacing:.08em}
+.avail-badge{display:inline-flex;align-items:center;gap:6px;font-size:.72rem;font-weight:500;color:var(--deep);padding:5px 12px;border:1px solid rgba(2,197,122,.3);border-radius:100px;background:rgba(2,197,122,.07)}
+/* stat tiles */
+.t-ps{grid-column:2;grid-row:2;display:flex;flex-direction:column;justify-content:flex-end;padding:24px}
+.t-psb{grid-column:3;grid-row:2;display:flex;flex-direction:column;justify-content:flex-end;padding:24px;background:var(--lift)}
+.ps-n{font-family:'Fraunces',serif;font-size:2.6rem;font-weight:900;letter-spacing:-.04em;line-height:1;margin-bottom:2px}
+.ps-n em{font-style:normal;color:var(--signal)}
+.ps-l{font-size:.65rem;color:var(--muted);text-transform:uppercase;letter-spacing:.07em}
+
+/* BODY BENTO */
+.g-profile-body{display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px;margin-bottom:12px}
+/* about */
+.t-about{grid-column:1/3;background:var(--surface)}
+.t-about .ti{min-height:180px}
+.about-h{font-family:'Fraunces',serif;font-size:1.2rem;font-weight:700;letter-spacing:-.02em;margin-bottom:14px}
+.about-p{font-size:.88rem;color:var(--muted);line-height:1.7;font-weight:300}
+/* avail tile */
+.t-detail{background:var(--lift)}
+.t-detail .ti{min-height:180px;justify-content:space-between}
+.drow{display:flex;justify-content:space-between;align-items:center;padding:9px 0;border-bottom:1px solid var(--rule);font-size:.82rem}
+.drow:last-child{border-bottom:none}
+.dlabel{color:var(--muted);font-weight:300}
+.dval{color:var(--text);font-weight:500;font-size:.8rem}
+
+/* WORK BENTO */
+.g-work{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-bottom:12px}
+.work-label-row{grid-column:1/-1;display:flex;align-items:center;justify-content:space-between;padding:4px 0}
+.wc-card{background:var(--surface);border:1px solid var(--rule);border-radius:var(--radius);padding:24px;position:relative;overflow:hidden;transition:background .2s}
+.wc-card:hover{background:var(--lift)}
+.wc-eyebrow{font-size:.65rem;font-weight:500;letter-spacing:.1em;text-transform:uppercase;color:var(--signal);margin-bottom:10px}
+.wc-title{font-family:'Fraunces',serif;font-size:1.05rem;font-weight:700;letter-spacing:-.01em;margin-bottom:10px;line-height:1.2}
+.wc-body{font-size:.8rem;color:var(--muted);line-height:1.65;font-weight:300;margin-bottom:14px}
+.wc-result{font-size:.78rem;font-weight:500;color:var(--text)}
+.wc-result em{font-style:normal;color:var(--signal)}
+
+/* SIMILAR */
+.g-similar{display:grid;grid-template-columns:repeat(4,1fr);gap:10px}
+.sim-label-row{grid-column:1/-1;padding:4px 0}
+.scard{background:var(--surface);border:1px solid var(--rule);border-radius:var(--radius);padding:20px;text-decoration:none;color:inherit;transition:background .2s;display:flex;flex-direction:column}
+.scard:hover{background:var(--lift)}
+.sc-avi{width:36px;height:36px;border-radius:50%;background:var(--lift);border:1px solid var(--rule);display:flex;align-items:center;justify-content:center;font-family:'Fraunces',serif;font-size:.8rem;font-weight:700;margin-bottom:12px}
+.sc-name{font-family:'Fraunces',serif;font-size:.92rem;font-weight:700;margin-bottom:2px}
+.sc-role{font-size:.7rem;color:var(--signal)}
+
+@media(max-width:900px){
+  .g-profile-hero{grid-template-columns:1fr 1fr}
+  .t-pid{grid-column:1/3}
+  .t-pctc{grid-column:1}.t-prate{grid-column:2}
+  .t-ps{grid-column:1}.t-psb{grid-column:2}
+  .g-profile-body{grid-template-columns:1fr}.t-about{grid-column:1}
+  .g-work{grid-template-columns:1fr}.g-similar{grid-template-columns:1fr 1fr}
+}
+</style>
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute"><defs>
+<symbol id="wf" viewBox="0 0 400 400"><g fill="none" stroke="#0A5C38" stroke-width="1"><line x1="200" y1="200" x2="200" y2="20"/><line x1="200" y1="200" x2="327" y2="73"/><line x1="200" y1="200" x2="380" y2="200"/><line x1="200" y1="200" x2="327" y2="327"/><line x1="200" y1="200" x2="200" y2="380"/><line x1="200" y1="200" x2="73" y2="327"/><line x1="200" y1="200" x2="20" y2="200"/><line x1="200" y1="200" x2="73" y2="73"/><polygon points="200,164 227,177 236,207 218,230 182,230 164,207 173,177"/><polygon points="200,128 254,154 272,214 236,258 164,258 128,214 146,154"/><polygon points="200,90 281,131 308,221 254,287 146,287 92,221 119,131"/><polygon points="200,52 308,108 344,228 272,316 128,316 56,228 92,108"/><polygon points="200,20 335,85 375,235 290,340 110,340 25,235 65,85"/></g></symbol>
+<symbol id="wtr" viewBox="0 0 200 200"><g fill="none" stroke="#0A5C38" stroke-width="1"><line x1="200" y1="0" x2="0" y2="200"/><line x1="200" y1="0" x2="60" y2="200"/><line x1="200" y1="0" x2="140" y2="200"/><line x1="200" y1="0" x2="200" y2="200"/><line x1="200" y1="0" x2="0" y2="60"/><line x1="200" y1="0" x2="0" y2="130"/><polyline points="40,0 20,20 0,40"/><polyline points="90,0 60,10 30,30 10,60 0,90"/><polyline points="145,0 115,22 88,48 62,76 40,106 20,138 0,170"/></g></symbol>
+<symbol id="wbl" viewBox="0 0 200 200"><g fill="none" stroke="#0A5C38" stroke-width="1"><line x1="0" y1="200" x2="200" y2="0"/><line x1="0" y1="200" x2="140" y2="0"/><line x1="0" y1="200" x2="60" y2="0"/><line x1="0" y1="200" x2="0" y2="0"/><line x1="0" y1="200" x2="200" y2="140"/><line x1="0" y1="200" x2="200" y2="70"/><polyline points="0,160 20,180 40,200"/><polyline points="0,110 10,140 30,170 60,190 90,200"/><polyline points="0,60 12,90 32,120 58,145 86,164 114,178 148,188 180,196 200,200"/></g></symbol>
+</defs></svg>
+
+<nav id="nav">
+  <a href="index.html" class="logo">Public<em>Proxi</em></a>
+  <ul class="nav-links">
+    <li><a href="search.html">Search</a></li>
+    <li><a href="how-it-works.html">How It Works</a></li>
+    <li><a href="pricing.html">Pricing</a></li>
+    <li><a href="about.html">About</a></li>
+    <li><a href="search.html" class="nav-pill">Claim Profile →</a></li>
+  </ul>
+</nav>
+
+<div class="page">
+  <div class="page-top">
+
+    <!-- PROFILE HERO -->
+    <div class="g-profile-hero">
+
+      <div class="tile t-pid">
+        <div class="web-radial"><svg><use href="#wf"/></svg></div>
+        <div class="ti">
+          <div class="prof-avi">EO</div>
+          <div class="prof-name">Emeka Obi</div>
+          <div class="prof-role">MC / Event Host</div>
+          <div class="prof-loc"><span class="dot"></span>Lagos, Nigeria · Available for travel</div>
+          <div class="prof-tags">
+            <span class="pt">Corporate Events</span>
+            <span class="pt">Bilingual</span>
+            <span class="pt">Weddings</span>
+            <span class="pt">Product Launches</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="tile t-pctc">
+        <div class="wc wc-tr" style="width:120px;height:120px;opacity:.12"><svg width="100%" height="100%" style="stroke:#02301E"><use href="#wtr"/></svg></div>
+        <div class="ti">
+          <div class="pctc-h">Let's<br><em>work.</em></div>
+          <a href="contact.html" class="b-void">Get in Touch →</a>
+        </div>
+      </div>
+
+      <div class="tile t-prate">
+        <div class="ti">
+          <div class="avail-badge"><span style="width:5px;height:5px;border-radius:50%;background:var(--deep);display:inline-block"></span>Open to bookings</div>
+          <div>
+            <div class="rate-big">₦150k+</div>
+            <div class="rate-label">Per event</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="tile t-ps fu">
+        <div class="ps-n">8<em>+</em></div>
+        <div class="ps-l">Years hosting</div>
+      </div>
+
+      <div class="tile t-psb fu">
+        <div class="ps-n">200<em>+</em></div>
+        <div class="ps-l">Events hosted</div>
+      </div>
+
+    </div>
+
+    <!-- BIO + DETAILS -->
+    <div class="g-profile-body">
+      <div class="tile t-about fu">
+        <div class="ti">
+          <div class="about-h">About Emeka</div>
+          <p class="about-p">I've been the voice in the room for over 200 events — from intimate brand dinners to 5,000-seat product launches. Bilingual in English and Yoruba. I specialise in keeping energy high, transitions smooth, and audiences engaged from start to finish.</p>
+        </div>
+      </div>
+      <div class="tile t-detail fu">
+        <div class="ti">
+          <div class="about-h">Details</div>
+          <div>
+            <div class="drow"><span class="dlabel">Availability</span><span class="dval" style="color:var(--deep)">Open</span></div>
+            <div class="drow"><span class="dlabel">Base rate</span><span class="dval">₦150k/event</span></div>
+            <div class="drow"><span class="dlabel">Notice needed</span><span class="dval">5 days</span></div>
+            <div class="drow"><span class="dlabel">Travel</span><span class="dval">Nigeria-wide</span></div>
+            <div class="drow"><span class="dlabel">Languages</span><span class="dval">English · Yoruba</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- WORK -->
+    <div class="g-work">
+      <div class="work-label-row">
+        <h2 class="sec-h">Selected <em>work</em></h2>
+      </div>
+      <div class="wc-card fu">
+        <div class="wc-eyebrow">Product Launch · Lagos</div>
+        <div class="wc-title">GTBank SME Summit — 3,000 Attendees</div>
+        <p class="wc-body">Lead MC for a full-day summit. Managed 14 speakers, 4 panel sessions, and live entertainment across two stages.</p>
+        <div class="wc-result">Outcome: <em>Re-booked for 3 consecutive years.</em></div>
+      </div>
+      <div class="wc-card fu">
+        <div class="wc-eyebrow">Corporate Gala · Abuja</div>
+        <div class="wc-title">Shell Nigeria Annual Awards Night</div>
+        <p class="wc-body">Black-tie hosting for 800 executives. Bilingual segment in Yoruba for the cultural appreciation portion.</p>
+        <div class="wc-result">Outcome: <em>"Best awards ceremony we've run"</em> — Event Director</div>
+      </div>
+      <div class="wc-card fu">
+        <div class="wc-eyebrow">Wedding · Port Harcourt</div>
+        <div class="wc-title">High-Profile Traditional & White Wedding</div>
+        <p class="wc-body">Co-hosted a two-day ceremony with over 1,200 guests. Coordinated with a 7-piece band, 3 DJs, and 2 churches.</p>
+        <div class="wc-result">Outcome: <em>4 referrals in the same month.</em></div>
+      </div>
+    </div>
+
+    <!-- SIMILAR -->
+    <div class="g-similar">
+      <div class="sim-label-row">
+        <h2 class="sec-h">Also on the <em>search web</em></h2>
+      </div>
+      <a href="profile.html" class="scard fu"><div class="sc-avi">TB</div><div class="sc-name">Tunde Bakare</div><div class="sc-role">MC / Host · Abuja</div></a>
+      <a href="profile.html" class="scard fu"><div class="sc-avi">AF</div><div class="sc-name">Amaka Folarin</div><div class="sc-role">MC / Comedian · Lagos</div></a>
+      <a href="profile.html" class="scard fu"><div class="sc-avi">KA</div><div class="sc-name">Kola Adeyemi</div><div class="sc-role">Event Host · Ibadan</div></a>
+      <a href="profile.html" class="scard fu"><div class="sc-avi">NO</div><div class="sc-name">Ngozi Okonkwo</div><div class="sc-role">Conference Host · Lagos</div></a>
+    </div>
+
+  </div>
+</div>
+
+<footer class="pp-footer">
+  <div><a href="index.html" class="fl">Public<em>Proxi</em></a><p class="ft">Get your name on the search web.</p></div>
+  <div class="fc"><h4>Platform</h4><ul><li><a href="search.html">Search</a></li><li><a href="how-it-works.html">How It Works</a></li><li><a href="pricing.html">Pricing</a></li></ul></div>
+  <div class="fc"><h4>Companies</h4><ul><li><a href="post-brief.html">Post a Brief</a></li></ul></div>
+  <div class="fc"><h4>Company</h4><ul><li><a href="about.html">About</a></li><li><a href="blog.html">Blog</a></li><li><a href="contact.html">Contact</a></li></ul></div>
+</footer>
+<div class="pp-fb"><p>© 2026 PublicProxi</p><p>No commissions. Ever.</p></div>
+
+<script>
+const nav=document.getElementById('nav');
+window.addEventListener('scroll',()=>nav.classList.toggle('scrolled',scrollY>60));
+const obs=new IntersectionObserver(e=>e.forEach(x=>{if(x.isIntersecting)x.target.classList.add('on')}),{threshold:.07});
+document.querySelectorAll('.fu').forEach(el=>obs.observe(el));
+</script>
+</body>
+</html>

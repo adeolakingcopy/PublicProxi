@@ -1,0 +1,187 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"/><meta name="viewport" content="width=device-width,initial-scale=1.0"/><title>Pricing — PublicProxi</title><link rel="preconnect" href="https://fonts.googleapis.com"/><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/><link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,700;0,9..144,900;1,9..144,300;1,9..144,700&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet"/><link rel="stylesheet" href="shared.css"/>
+<style>
+.page-top{padding-top:100px}
+.web-radial{position:absolute;inset:0;pointer-events:none;z-index:0;opacity:.15;display:flex;align-items:center;justify-content:center}
+.web-radial svg{width:130%;height:130%;position:absolute;top:50%;left:50%;transform:translate(-50%,-50%)}
+.wc{position:absolute;pointer-events:none;z-index:0}
+.wc-tr{top:0;right:0;width:180px;height:180px;opacity:.2}
+.wc-bl{bottom:0;left:0;width:160px;height:160px;opacity:.2}
+/* HERO */
+.g-ph{display:grid;grid-template-columns:1.5fr 1fr;gap:10px;margin-bottom:12px}
+.t-ph-hl{background:var(--void);position:relative;overflow:hidden}
+.t-ph-hl .ti{justify-content:flex-end;min-height:280px}
+.ph-h{font-family:'Fraunces',serif;font-size:clamp(2.5rem,4.5vw,4.5rem);font-weight:900;letter-spacing:-.04em;line-height:.94;margin-bottom:12px}
+.ph-h em{font-style:italic;color:var(--signal)}
+.ph-p{font-size:.88rem;color:var(--muted);font-weight:300;line-height:1.65;max-width:280px}
+.t-ph-stat{background:var(--signal);position:relative;overflow:hidden}
+.t-ph-stat .ti{justify-content:space-between;min-height:280px}
+.ph-stat-n{font-family:'Fraunces',serif;font-size:5rem;font-weight:900;letter-spacing:-.05em;line-height:1;color:var(--void)}
+.ph-stat-l{font-size:.72rem;color:rgba(2,48,30,.6);text-transform:uppercase;letter-spacing:.08em}
+.ph-stat-sub{font-family:'Fraunces',serif;font-size:1.1rem;font-weight:300;font-style:italic;color:rgba(2,48,30,.7)}
+/* TOGGLE */
+.toggle-row{display:flex;align-items:center;gap:12px;margin-bottom:12px}
+.tgl-lbl{font-size:.8rem;color:var(--muted)}
+.tgl{width:44px;height:24px;background:var(--rule);border-radius:12px;position:relative;cursor:pointer;transition:background .3s}
+.tgl.on{background:var(--signal)}
+.tgl-dot{width:18px;height:18px;background:var(--text);border-radius:50%;position:absolute;top:3px;left:3px;transition:left .3s}
+.tgl.on .tgl-dot{left:23px;background:var(--void)}
+.save-badge{font-size:.68rem;font-weight:500;color:var(--signal);letter-spacing:.06em;text-transform:uppercase;padding:3px 10px;border:1px solid var(--signal);border-radius:100px}
+/* PLANS */
+.g-plans{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-bottom:12px}
+.plan{background:var(--surface);border:1px solid var(--rule);border-radius:var(--radius);padding:32px;position:relative;overflow:hidden;display:flex;flex-direction:column}
+.plan.featured{background:var(--lift);border-color:var(--signal)}
+.plan-badge{position:absolute;top:0;left:50%;transform:translateX(-50%);background:var(--signal);color:var(--void);font-size:.65rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase;padding:4px 14px;border-radius:0 0 8px 8px}
+.plan-name{font-size:.68rem;font-weight:500;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin-bottom:14px;margin-top:8px}
+.plan-price{font-family:'Fraunces',serif;font-size:3.5rem;font-weight:900;letter-spacing:-.04em;line-height:1;margin-bottom:4px}
+.plan-price sup{font-size:1.4rem;vertical-align:top;margin-top:8px;color:var(--muted)}
+.plan-price span{font-size:.9rem;color:var(--muted);font-family:'DM Sans',sans-serif;font-weight:300}
+.plan-desc{font-size:.82rem;color:var(--muted);line-height:1.6;font-weight:300;margin:16px 0 24px;padding-bottom:20px;border-bottom:1px solid var(--rule)}
+.plan-feats{list-style:none;margin-bottom:28px;flex:1}
+.plan-feats li{display:flex;align-items:flex-start;gap:8px;font-size:.82rem;color:var(--muted);padding:7px 0;border-bottom:1px solid var(--rule);font-weight:300}
+.plan-feats li:last-child{border-bottom:none}
+.plan-feats li.yes{color:var(--text)}
+.ck{width:14px;height:14px;border-radius:50%;background:rgba(248,254,6,.15);border:1px solid rgba(248,254,6,.3);display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:1px}
+.ck svg{width:7px;height:7px;color:var(--signal)}
+.xk{width:14px;height:14px;border-radius:50%;background:var(--lift);border:1px solid var(--rule);flex-shrink:0;margin-top:1px}
+.plan-btn{display:block;text-align:center;padding:13px;border-radius:100px;font-family:'DM Sans',sans-serif;font-size:.82rem;font-weight:500;cursor:pointer;transition:all .2s;text-decoration:none;border:none}
+.pb-sig{background:var(--signal);color:var(--void)}.pb-sig:hover{opacity:.88}
+.pb-out{background:transparent;border:1px solid var(--rule);color:var(--text)}.pb-out:hover{border-color:var(--muted)}
+/* COMPANY PLANS */
+.g-co{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:12px}
+.co-plan{background:var(--surface);border:1px solid var(--rule);border-radius:var(--radius);padding:32px;position:relative;overflow:hidden}
+.co-plan.dark{background:var(--lift);border-color:var(--signal)}
+.co-name{font-size:.68rem;font-weight:500;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin-bottom:12px}
+.co-h{font-family:'Fraunces',serif;font-size:1.6rem;font-weight:700;letter-spacing:-.02em;margin-bottom:10px}
+.co-p{font-size:.83rem;color:var(--muted);font-weight:300;line-height:1.6;margin-bottom:20px}
+.co-price{font-family:'Fraunces',serif;font-size:2.4rem;font-weight:900;letter-spacing:-.03em;margin-bottom:20px}
+.co-price span{font-size:.9rem;color:var(--muted);font-family:'DM Sans',sans-serif;font-weight:300}
+/* NC TILE */
+.t-nc-wide{background:var(--signal);border-radius:var(--radius);padding:40px;display:flex;align-items:center;justify-content:space-between;gap:24px;position:relative;overflow:hidden;margin-bottom:12px}
+.nc-big{font-family:'Fraunces',serif;font-size:clamp(2rem,4vw,3.5rem);font-weight:900;letter-spacing:-.04em;line-height:.96;color:var(--void)}
+.nc-big em{font-style:italic}
+.nc-side{max-width:280px}
+.nc-side p{font-size:.88rem;color:rgba(2,48,30,.65);font-weight:300;line-height:1.65}
+@media(max-width:900px){
+  .g-ph,.g-co{grid-template-columns:1fr}
+  .g-plans{grid-template-columns:1fr}
+  .t-nc-wide{flex-direction:column;align-items:flex-start}
+}
+</style></head><body>
+<svg width="0" height="0" style="position:absolute"><defs>
+<symbol id="wf" viewBox="0 0 400 400"><g fill="none" stroke="#0A5C38" stroke-width="1"><line x1="200" y1="200" x2="200" y2="20"/><line x1="200" y1="200" x2="327" y2="73"/><line x1="200" y1="200" x2="380" y2="200"/><line x1="200" y1="200" x2="327" y2="327"/><line x1="200" y1="200" x2="200" y2="380"/><line x1="200" y1="200" x2="73" y2="327"/><line x1="200" y1="200" x2="20" y2="200"/><line x1="200" y1="200" x2="73" y2="73"/><polygon points="200,164 227,177 236,207 218,230 182,230 164,207 173,177"/><polygon points="200,128 254,154 272,214 236,258 164,258 128,214 146,154"/><polygon points="200,90 281,131 308,221 254,287 146,287 92,221 119,131"/></g></symbol>
+<symbol id="wtr" viewBox="0 0 200 200"><g fill="none" stroke="#0A5C38" stroke-width="1"><line x1="200" y1="0" x2="0" y2="200"/><line x1="200" y1="0" x2="60" y2="200"/><line x1="200" y1="0" x2="140" y2="200"/><line x1="200" y1="0" x2="200" y2="200"/><line x1="200" y1="0" x2="0" y2="60"/><line x1="200" y1="0" x2="0" y2="130"/><polyline points="40,0 20,20 0,40"/><polyline points="90,0 60,10 30,30 10,60 0,90"/><polyline points="145,0 115,22 88,48 62,76 40,106 20,138 0,170"/></g></symbol>
+<symbol id="wbl" viewBox="0 0 200 200"><g fill="none" stroke="#0A5C38" stroke-width="1"><line x1="0" y1="200" x2="200" y2="0"/><line x1="0" y1="200" x2="140" y2="0"/><line x1="0" y1="200" x2="60" y2="0"/><line x1="0" y1="200" x2="0" y2="0"/><line x1="0" y1="200" x2="200" y2="140"/><line x1="0" y1="200" x2="200" y2="70"/><polyline points="0,160 20,180 40,200"/><polyline points="0,110 10,140 30,170 60,190 90,200"/><polyline points="0,60 12,90 32,120 58,145 86,164 114,178 148,188 180,196 200,200"/></g></symbol>
+</defs></svg>
+<nav id="nav"><a href="index.html" class="logo">Public<em>Proxi</em></a><ul class="nav-links"><li><a href="search.html">Search</a></li><li><a href="how-it-works.html">How It Works</a></li><li><a href="pricing.html" class="active">Pricing</a></li><li><a href="about.html">About</a></li><li><a href="search.html" class="nav-pill">Claim Profile →</a></li></ul></nav>
+<div class="page"><div class="page-top">
+<!-- HERO -->
+<div class="g-ph">
+  <div class="tile t-ph-hl">
+    <div class="web-radial"><svg><use href="#wf"/></svg></div>
+    <div class="ti">
+      <div class="eyebrow">Pricing</div>
+      <h1 class="ph-h">Simple.<br>Honest.<br><em>No commission.</em></h1>
+      <p class="ph-p">We charge for discovery tools. Never a cut of what you earn.</p>
+    </div>
+  </div>
+  <div class="tile t-ph-stat">
+    <div class="wc wc-bl" style="opacity:.1"><svg width="100%" height="100%" style="stroke:#02301E"><use href="#wbl"/></svg></div>
+    <div class="ti">
+      <div class="ph-stat-n">0%</div>
+      <div class="ph-stat-l">Commission on hires</div>
+      <div class="ph-stat-sub">"Your rate is yours. Always."</div>
+    </div>
+  </div>
+</div>
+<!-- TOGGLE -->
+<div class="toggle-row">
+  <span class="tgl-lbl">Monthly</span>
+  <div class="tgl" id="tgl"><div class="tgl-dot"></div></div>
+  <span class="tgl-lbl">Annual</span>
+  <span class="save-badge">Save 20%</span>
+</div>
+<!-- PLANS -->
+<div class="g-plans">
+  <div class="plan fu">
+    <div class="plan-name">Starter</div>
+    <div class="plan-price"><sup>$</sup>0<span>/mo</span></div>
+    <p class="plan-desc">Get on the search web. Free forever.</p>
+    <ul class="plan-feats">
+      <li class="yes"><span class="ck"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></span>Public indexed profile</li>
+      <li class="yes"><span class="ck"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></span>Google indexing</li>
+      <li class="yes"><span class="ck"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></span>Up to 5 inbound/month</li>
+      <li class="yes"><span class="ck"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></span>3 portfolio pieces</li>
+      <li><span class="xk"></span>Profile analytics</li>
+      <li><span class="xk"></span>Priority ranking</li>
+    </ul>
+    <a href="#" class="plan-btn pb-out">Start Free</a>
+  </div>
+  <div class="plan featured fu">
+    <div class="plan-badge">Most Popular</div>
+    <div class="plan-name">Signal</div>
+    <div class="plan-price"><sup>$</sup><span id="sp">29</span><span>/mo</span></div>
+    <p class="plan-desc">Unlimited inbound. Full analytics. Serious visibility.</p>
+    <ul class="plan-feats">
+      <li class="yes"><span class="ck"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></span>Everything in Starter</li>
+      <li class="yes"><span class="ck"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></span>Unlimited inbound</li>
+      <li class="yes"><span class="ck"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></span>Full analytics dashboard</li>
+      <li class="yes"><span class="ck"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></span>Unlimited portfolio</li>
+      <li class="yes"><span class="ck"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></span>Search appearance reports</li>
+      <li><span class="xk"></span>Priority ranking boost</li>
+    </ul>
+    <a href="#" class="plan-btn pb-sig">Start Signal →</a>
+  </div>
+  <div class="plan fu">
+    <div class="plan-name">Authority</div>
+    <div class="plan-price"><sup>$</sup><span id="ap">79</span><span>/mo</span></div>
+    <p class="plan-desc">Maximum visibility. Priority ranking. Authority badge.</p>
+    <ul class="plan-feats">
+      <li class="yes"><span class="ck"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></span>Everything in Signal</li>
+      <li class="yes"><span class="ck"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></span>Priority search ranking</li>
+      <li class="yes"><span class="ck"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></span>Authority badge</li>
+      <li class="yes"><span class="ck"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></span>Competitor analytics</li>
+      <li class="yes"><span class="ck"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></span>Custom profile URL</li>
+      <li class="yes"><span class="ck"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></span>Weekly digest feature</li>
+    </ul>
+    <a href="#" class="plan-btn pb-out">Start Authority →</a>
+  </div>
+</div>
+<!-- NO COMMISSION BANNER -->
+<div class="t-nc-wide fu">
+  <div class="wc wc-bl" style="opacity:.08"><svg width="100%" height="100%" style="stroke:#02301E"><use href="#wbl"/></svg></div>
+  <div class="nc-big" style="position:relative;z-index:1">Zero<br><em>commission.</em><br>Always.</div>
+  <div class="nc-side" style="position:relative;z-index:1"><p>Platforms like Upwork take up to 20% of every project. We take 0%. We make money from the platform — not from your work.</p></div>
+</div>
+<!-- COMPANY PLANS -->
+<div class="eyebrow sig" style="margin-bottom:8px">For Companies</div>
+<div class="g-co">
+  <div class="co-plan fu">
+    <div class="wc wc-tr"><svg width="100%" height="100%"><use href="#wtr"/></svg></div>
+    <div style="position:relative;z-index:1">
+      <div class="co-name">Team Search</div>
+      <div class="co-h">Find. Hire. Directly.</div>
+      <p class="co-p">Unlimited search, advanced filters, direct contact. For teams hiring occasionally.</p>
+      <div class="co-price"><sup style="font-size:1rem;color:var(--muted)">$</sup><span id="tp">199</span><span>/mo</span></div>
+      <a href="post-brief.html" class="plan-btn pb-out" style="width:fit-content;padding:11px 24px">Start Searching →</a>
+    </div>
+  </div>
+  <div class="co-plan dark fu">
+    <div class="wc wc-tr" style="opacity:.1"><svg width="100%" height="100%" style="stroke:#02301E"><use href="#wtr"/></svg></div>
+    <div style="position:relative;z-index:1">
+      <div class="co-name">Enterprise</div>
+      <div class="co-h">Unlimited. Integrated.</div>
+      <p class="co-p">Unlimited outreach, team seats, ATS integration, and a dedicated account manager.</p>
+      <div class="co-price" style="color:var(--signal)">Custom</div>
+      <a href="contact.html" class="plan-btn pb-sig" style="width:fit-content;padding:11px 24px">Talk to Sales →</a>
+    </div>
+  </div>
+</div>
+</div></div>
+<footer class="pp-footer"><div><a href="index.html" class="fl">Public<em>Proxi</em></a><p class="ft">Get your name on the search web.</p></div><div class="fc"><h4>Platform</h4><ul><li><a href="search.html">Search</a></li><li><a href="how-it-works.html">How It Works</a></li><li><a href="pricing.html">Pricing</a></li></ul></div><div class="fc"><h4>Companies</h4><ul><li><a href="post-brief.html">Post a Brief</a></li></ul></div><div class="fc"><h4>Company</h4><ul><li><a href="about.html">About</a></li><li><a href="blog.html">Blog</a></li><li><a href="contact.html">Contact</a></li></ul></div></footer>
+<div class="pp-fb"><p>© 2026 PublicProxi</p><p>No commissions. Ever.</p></div>
+<script>
+const nav=document.getElementById('nav');window.addEventListener('scroll',()=>nav.classList.toggle('scrolled',scrollY>60));
+const tgl=document.getElementById('tgl');let ann=false;
+tgl.addEventListener('click',()=>{ann=!ann;tgl.classList.toggle('on',ann);document.getElementById('sp').textContent=ann?23:29;document.getElementById('ap').textContent=ann?63:79;document.getElementById('tp').textContent=ann?159:199;});
+const obs=new IntersectionObserver(e=>e.forEach(x=>{if(x.isIntersecting)x.target.classList.add('on')}),{threshold:.07});document.querySelectorAll('.fu').forEach(el=>obs.observe(el));
+</script></body></html>

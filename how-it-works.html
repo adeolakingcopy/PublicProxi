@@ -1,0 +1,140 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"/><meta name="viewport" content="width=device-width,initial-scale=1.0"/><title>How It Works — PublicProxi</title><link rel="preconnect" href="https://fonts.googleapis.com"/><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/><link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,700;0,9..144,900;1,9..144,300;1,9..144,700&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet"/><link rel="stylesheet" href="shared.css"/>
+<style>
+.page-top{padding-top:100px}
+.g-hiw-hero{display:grid;grid-template-columns:1.5fr 1fr;gap:10px;margin-bottom:12px}
+.t-hiw-hl{background:var(--void);position:relative;overflow:hidden}
+.t-hiw-hl .ti{justify-content:flex-end;min-height:320px}
+.web-radial{position:absolute;inset:0;pointer-events:none;z-index:0;opacity:.15;display:flex;align-items:center;justify-content:center}
+.web-radial svg{width:130%;height:130%;position:absolute;top:50%;left:50%;transform:translate(-50%,-50%)}
+.hiw-h{font-family:'Fraunces',serif;font-size:clamp(2.5rem,4.5vw,4.5rem);font-weight:900;letter-spacing:-.04em;line-height:.94;margin-bottom:14px}
+.hiw-h em{font-style:italic;color:var(--signal)}
+.hiw-sub{font-size:.88rem;color:var(--muted);font-weight:300;line-height:1.65;max-width:300px}
+.t-hiw-google{background:var(--signal);position:relative;overflow:hidden}
+.t-hiw-google .ti{justify-content:space-between;min-height:320px}
+.hg-h{font-family:'Fraunces',serif;font-size:2rem;font-weight:900;line-height:.96;letter-spacing:-.03em;color:var(--void)}
+.hg-h em{font-style:italic}
+.hg-p{font-size:.82rem;color:rgba(2,48,30,.65);font-weight:300;line-height:1.6;max-width:220px}
+.hg-url{font-size:.68rem;color:var(--void);padding:6px 12px;background:rgba(2,48,30,.1);border:1px solid rgba(2,48,30,.2);border-radius:6px;word-break:break-all}
+/* STEPS BENTO */
+.g-steps{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-bottom:12px}
+.step-tile{background:var(--surface);border:1px solid var(--rule);border-radius:var(--radius);padding:28px;position:relative;overflow:hidden;transition:background .2s}
+.step-tile:hover{background:var(--lift)}
+.step-n{font-family:'Fraunces',serif;font-size:4rem;font-weight:900;letter-spacing:-.04em;color:var(--rule);line-height:1;margin-bottom:12px;transition:color .3s}
+.step-tile:hover .step-n{color:var(--signal)}
+.step-title{font-family:'Fraunces',serif;font-size:1.1rem;font-weight:700;letter-spacing:-.01em;margin-bottom:8px;line-height:1.15}
+.step-body{font-size:.8rem;color:var(--muted);line-height:1.65;font-weight:300}
+/* TWO PATHS */
+.g-paths{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:12px}
+.path-tile{background:var(--lift);border-radius:var(--radius);border:1px solid var(--rule);padding:32px;position:relative;overflow:hidden}
+.path-label{font-size:.68rem;font-weight:500;letter-spacing:.12em;text-transform:uppercase;color:var(--signal);margin-bottom:12px}
+.path-h{font-family:'Fraunces',serif;font-size:1.5rem;font-weight:700;letter-spacing:-.02em;margin-bottom:12px;line-height:1.1}
+.path-p{font-size:.85rem;color:var(--muted);font-weight:300;line-height:1.65}
+/* FAQ */
+.g-faq{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.faq-label-row{grid-column:1/-1;padding:4px 0}
+.faq-tile{background:var(--surface);border:1px solid var(--rule);border-radius:var(--radius);padding:24px;cursor:pointer;transition:background .2s;border-bottom:2px solid transparent}
+.faq-tile:hover{background:var(--lift);border-bottom-color:var(--signal)}
+.fq{font-family:'Fraunces',serif;font-size:1rem;font-weight:700;letter-spacing:-.01em;margin-bottom:8px}
+.fa{font-size:.82rem;color:var(--muted);line-height:1.65;font-weight:300}
+/* CTA */
+.g-cta{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:12px}
+.cta-big{background:var(--signal);border-radius:var(--radius);padding:40px;position:relative;overflow:hidden}
+.cb-h{font-family:'Fraunces',serif;font-size:2.5rem;font-weight:900;line-height:.96;letter-spacing:-.04em;color:var(--void);margin-bottom:10px}
+.cb-h em{font-style:italic}
+.cb-p{font-size:.84rem;color:rgba(2,48,30,.6);font-weight:300;margin-bottom:24px}
+.cta-dark{background:var(--void);border-radius:var(--radius);padding:40px;display:flex;flex-direction:column;justify-content:space-between;position:relative;overflow:hidden}
+.cd-h{font-family:'Fraunces',serif;font-size:1.5rem;font-weight:700;letter-spacing:-.02em;margin-bottom:10px}
+.cd-h em{font-style:italic;color:var(--signal)}
+.cd-p{font-size:.84rem;color:var(--muted);font-weight:300;line-height:1.6}
+.wc{position:absolute;pointer-events:none;z-index:0}
+.wc-tr{top:0;right:0;width:180px;height:180px;opacity:.2}
+.wc-bl{bottom:0;left:0;width:160px;height:160px;opacity:.2}
+@media(max-width:900px){
+  .g-hiw-hero,.g-paths,.g-cta{grid-template-columns:1fr}
+  .g-steps{grid-template-columns:1fr 1fr}
+  .g-faq{grid-template-columns:1fr}
+}
+</style></head><body>
+<svg width="0" height="0" style="position:absolute"><defs>
+<symbol id="wf" viewBox="0 0 400 400"><g fill="none" stroke="#0A5C38" stroke-width="1"><line x1="200" y1="200" x2="200" y2="20"/><line x1="200" y1="200" x2="327" y2="73"/><line x1="200" y1="200" x2="380" y2="200"/><line x1="200" y1="200" x2="327" y2="327"/><line x1="200" y1="200" x2="200" y2="380"/><line x1="200" y1="200" x2="73" y2="327"/><line x1="200" y1="200" x2="20" y2="200"/><line x1="200" y1="200" x2="73" y2="73"/><polygon points="200,164 227,177 236,207 218,230 182,230 164,207 173,177"/><polygon points="200,128 254,154 272,214 236,258 164,258 128,214 146,154"/><polygon points="200,90 281,131 308,221 254,287 146,287 92,221 119,131"/><polygon points="200,52 308,108 344,228 272,316 128,316 56,228 92,108"/></g></symbol>
+<symbol id="wtr" viewBox="0 0 200 200"><g fill="none" stroke="#0A5C38" stroke-width="1"><line x1="200" y1="0" x2="0" y2="200"/><line x1="200" y1="0" x2="60" y2="200"/><line x1="200" y1="0" x2="140" y2="200"/><line x1="200" y1="0" x2="200" y2="200"/><line x1="200" y1="0" x2="0" y2="60"/><line x1="200" y1="0" x2="0" y2="130"/><polyline points="40,0 20,20 0,40"/><polyline points="90,0 60,10 30,30 10,60 0,90"/><polyline points="145,0 115,22 88,48 62,76 40,106 20,138 0,170"/></g></symbol>
+<symbol id="wbl" viewBox="0 0 200 200"><g fill="none" stroke="#0A5C38" stroke-width="1"><line x1="0" y1="200" x2="200" y2="0"/><line x1="0" y1="200" x2="140" y2="0"/><line x1="0" y1="200" x2="60" y2="0"/><line x1="0" y1="200" x2="0" y2="0"/><line x1="0" y1="200" x2="200" y2="140"/><line x1="0" y1="200" x2="200" y2="70"/><polyline points="0,160 20,180 40,200"/><polyline points="0,110 10,140 30,170 60,190 90,200"/><polyline points="0,60 12,90 32,120 58,145 86,164 114,178 148,188 180,196 200,200"/></g></symbol>
+</defs></svg>
+<nav id="nav"><a href="index.html" class="logo">Public<em>Proxi</em></a><ul class="nav-links"><li><a href="search.html">Search</a></li><li><a href="how-it-works.html" class="active">How It Works</a></li><li><a href="pricing.html">Pricing</a></li><li><a href="about.html">About</a></li><li><a href="search.html" class="nav-pill">Claim Profile →</a></li></ul></nav>
+<div class="page"><div class="page-top">
+<div class="g-hiw-hero">
+  <div class="tile t-hiw-hl">
+    <div class="web-radial"><svg><use href="#wf"/></svg></div>
+    <div class="ti">
+      <div class="eyebrow">How it works</div>
+      <h1 class="hiw-h">Build once.<br>Get found<br><em>forever.</em></h1>
+      <p class="hiw-sub">Your profile is a live page on the internet. Google indexes it. Clients find it. You do the work.</p>
+    </div>
+  </div>
+  <div class="tile t-hiw-google">
+    <div class="wc wc-tr" style="opacity:.1"><svg width="100%" height="100%" style="stroke:#02301E"><use href="#wtr"/></svg></div>
+    <div class="ti">
+      <div class="hg-h">On<br><em>Google.</em><br>By default.</div>
+      <p class="hg-p">Every profile is a public, indexed page. No login wall. No platform lock-in.</p>
+      <div class="hg-url">publicproxi.com/mc/emeka-obi-lagos</div>
+    </div>
+  </div>
+</div>
+<!-- 4 STEPS -->
+<div class="g-steps">
+  <div class="step-tile fu"><div class="step-n">01</div><div class="step-title">Claim your profile</div><p class="step-body">Name, role, location, skills. Takes 20 minutes. No CV needed.</p></div>
+  <div class="step-tile fu"><div class="step-n">02</div><div class="step-title">Go live on the web</div><p class="step-body">Your profile is published as a real indexed page. Google can find it within 24 hours.</p></div>
+  <div class="step-tile fu"><div class="step-n">03</div><div class="step-title">Clients search, you appear</div><p class="step-body">Someone searches for your skill and location. Your profile surfaces. They reach out.</p></div>
+  <div class="step-tile fu"><div class="step-n">04</div><div class="step-title">Work directly. Keep everything.</div><p class="step-body">No middleman. No commission. You agree terms and get paid directly.</p></div>
+</div>
+<!-- TWO PATHS -->
+<div class="g-paths">
+  <div class="path-tile fu">
+    <div class="wc wc-bl"><svg width="100%" height="100%"><use href="#wbl"/></svg></div>
+    <div style="position:relative;z-index:1">
+      <div class="path-label">For Talent</div>
+      <div class="path-h">Your name. Searchable. Earning.</div>
+      <p class="path-p">Build a profile that works like a website — indexed, findable, always on. Clients come to you through search. No pitching, no applying.</p>
+    </div>
+  </div>
+  <div class="path-tile fu">
+    <div class="wc wc-tr"><svg width="100%" height="100%"><use href="#wtr"/></svg></div>
+    <div style="position:relative;z-index:1">
+      <div class="path-label">For Clients</div>
+      <div class="path-h">Search. Find. Hire. Done.</div>
+      <p class="path-p">Type what you need. Get matched with real, verified people on the open web. Contact directly — no agency, no markup.</p>
+    </div>
+  </div>
+</div>
+<!-- FAQ -->
+<div class="g-faq">
+  <div class="faq-label-row"><h2 class="sec-h">Quick <em>answers</em></h2></div>
+  <div class="faq-tile fu"><div class="fq">Is it really free?</div><p class="fa">The Starter plan is free forever. Paid plans unlock analytics and priority ranking.</p></div>
+  <div class="faq-tile fu"><div class="fq">How fast does Google index it?</div><p class="fa">Usually within 24–72 hours. Profiles with more detail index faster.</p></div>
+  <div class="faq-tile fu"><div class="fq">Do you take commission?</div><p class="fa">Never. We charge for platform tools. Your earnings are yours, entirely.</p></div>
+  <div class="faq-tile fu"><div class="fq">Who can join?</div><p class="fa">Anyone who earns from their name and skill — MC, voiceover artist, designer, speaker, photographer, coach, developer.</p></div>
+</div>
+<!-- CTA -->
+<div class="g-cta">
+  <div class="cta-big fu">
+    <div class="wc wc-bl" style="opacity:.12"><svg width="100%" height="100%" style="stroke:#02301E"><use href="#wbl"/></svg></div>
+    <div style="position:relative;z-index:1">
+      <div class="cb-h">Get on<br><em>the web.</em></div>
+      <p class="cb-p">Set up in 20 minutes. Found in 24 hours.</p>
+      <a href="search.html" class="btn b-dk" style="background:var(--void);color:var(--signal)">Claim Your Profile →</a>
+    </div>
+  </div>
+  <div class="cta-dark fu">
+    <div class="wc wc-tr"><svg width="100%" height="100%"><use href="#wtr"/></svg></div>
+    <div style="position:relative;z-index:1">
+      <div class="cd-h">Need someone? <em>Search.</em></div>
+      <p class="cd-p">60,000+ people on the search web. Find exactly who you need.</p>
+    </div>
+    <a href="search.html" class="btn b-sig" style="width:fit-content;position:relative;z-index:1">Browse Talent →</a>
+  </div>
+</div>
+</div></div>
+<footer class="pp-footer"><div><a href="index.html" class="fl">Public<em>Proxi</em></a><p class="ft">Get your name on the search web.</p></div><div class="fc"><h4>Platform</h4><ul><li><a href="search.html">Search</a></li><li><a href="how-it-works.html">How It Works</a></li><li><a href="pricing.html">Pricing</a></li></ul></div><div class="fc"><h4>Companies</h4><ul><li><a href="post-brief.html">Post a Brief</a></li></ul></div><div class="fc"><h4>Company</h4><ul><li><a href="about.html">About</a></li><li><a href="blog.html">Blog</a></li><li><a href="contact.html">Contact</a></li></ul></div></footer>
+<div class="pp-fb"><p>© 2026 PublicProxi</p><p>No commissions. Ever.</p></div>
+<script>const nav=document.getElementById('nav');window.addEventListener('scroll',()=>nav.classList.toggle('scrolled',scrollY>60));const obs=new IntersectionObserver(e=>e.forEach(x=>{if(x.isIntersecting)x.target.classList.add('on')}),{threshold:.07});document.querySelectorAll('.fu').forEach(el=>obs.observe(el));</script>
+</body></html>

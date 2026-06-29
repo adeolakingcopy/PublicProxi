@@ -1,0 +1,140 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"/><meta name="viewport" content="width=device-width,initial-scale=1.0"/><title>Contact — PublicProxi</title><link rel="preconnect" href="https://fonts.googleapis.com"/><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/><link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,700;0,9..144,900;1,9..144,300;1,9..144,700&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet"/><link rel="stylesheet" href="shared.css"/>
+<style>
+.page-top{padding-top:100px}
+.web-radial{position:absolute;inset:0;pointer-events:none;z-index:0;opacity:.15;display:flex;align-items:center;justify-content:center}
+.web-radial svg{width:130%;height:130%;position:absolute;top:50%;left:50%;transform:translate(-50%,-50%)}
+.wc{position:absolute;pointer-events:none;z-index:0}
+.wc-tr{top:0;right:0;width:180px;height:180px;opacity:.2}
+.wc-bl{bottom:0;left:0;width:160px;height:160px;opacity:.2}
+.g-contact{display:grid;grid-template-columns:1fr 1.4fr;gap:10px;align-items:start}
+/* LEFT */
+.contact-left{display:flex;flex-direction:column;gap:10px}
+.t-c-hl{background:var(--void);border-radius:var(--radius);border:1px solid var(--rule);position:relative;overflow:hidden}
+.t-c-hl .ti{justify-content:flex-end;min-height:260px}
+.c-h{font-family:'Fraunces',serif;font-size:clamp(2.5rem,4vw,4rem);font-weight:900;letter-spacing:-.04em;line-height:.94;margin-bottom:12px}
+.c-h em{font-style:italic;color:var(--signal)}
+.c-p{font-size:.85rem;color:var(--muted);font-weight:300;line-height:1.65;max-width:260px}
+/* CHANNELS */
+.channels{background:var(--surface);border:1px solid var(--rule);border-radius:var(--radius);overflow:hidden}
+.channel{display:flex;align-items:flex-start;gap:14px;padding:18px 24px;border-bottom:1px solid var(--rule)}
+.channel:last-child{border-bottom:none}
+.ch-icon{width:36px;height:36px;border:1px solid var(--rule);border-radius:8px;display:flex;align-items:center;justify-content:center;color:var(--signal);flex-shrink:0}
+.ch-icon svg{width:15px;height:15px}
+.ch-label{font-size:.62rem;font-weight:500;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin-bottom:3px}
+.ch-val{font-size:.85rem;font-weight:500;color:var(--text);margin-bottom:2px}
+.ch-note{font-size:.72rem;color:var(--muted);font-weight:300}
+/* OFFICES */
+.g-offices{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.office{background:var(--lift);border:1px solid var(--rule);border-radius:var(--radius);padding:20px}
+.off-city{font-family:'Fraunces',serif;font-size:1rem;font-weight:700;margin-bottom:2px}
+.off-country{font-size:.65rem;font-weight:500;letter-spacing:.08em;text-transform:uppercase;color:var(--signal);margin-bottom:8px}
+.off-addr{font-size:.78rem;color:var(--muted);line-height:1.6;font-weight:300}
+/* FORM */
+.t-form{background:var(--surface);border:1px solid var(--rule);border-radius:var(--radius);padding:36px;position:relative;overflow:hidden}
+.form-h{font-family:'Fraunces',serif;font-size:1.5rem;font-weight:700;letter-spacing:-.02em;margin-bottom:6px}
+.form-sub{font-size:.82rem;color:var(--muted);font-weight:300;margin-bottom:20px}
+/* TOPIC TABS */
+.topic-tabs{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:24px}
+.ttab{font-size:.7rem;font-weight:500;padding:6px 14px;border:1px solid var(--rule);border-radius:100px;color:var(--muted);cursor:pointer;transition:all .2s;text-transform:uppercase;letter-spacing:.04em;background:transparent}
+.ttab:hover{border-color:var(--muted);color:var(--text)}
+.ttab.on{border-color:var(--signal);color:var(--signal);background:rgba(248,254,6,.06)}
+.fg{margin-bottom:16px}
+.fg label{display:block;font-size:.66rem;font-weight:500;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin-bottom:8px}
+.fg input,.fg textarea,.fg select{width:100%;background:var(--lift);border:1px solid var(--rule);border-radius:8px;color:var(--text);font-family:'DM Sans',sans-serif;font-size:.88rem;padding:12px 14px;outline:none;transition:border-color .2s;-webkit-appearance:none}
+.fg input:focus,.fg textarea:focus,.fg select:focus{border-color:var(--signal);box-shadow:0 0 0 3px rgba(248,254,6,.08)}
+.fg input::placeholder,.fg textarea::placeholder{color:var(--muted)}
+.fg textarea{resize:vertical;min-height:110px;line-height:1.55}
+.fg-row{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.sub-btn{width:100%;padding:14px;background:var(--signal);color:var(--void);border:none;border-radius:100px;font-family:'DM Sans',sans-serif;font-size:.88rem;font-weight:500;cursor:pointer;transition:opacity .2s;margin-top:4px}
+.sub-btn:hover{opacity:.88}
+.form-note{font-size:.7rem;color:var(--muted);text-align:center;margin-top:10px;font-weight:300}
+.success{display:none;text-align:center;padding:48px 0}
+.success-icon{width:56px;height:56px;border-radius:50%;background:rgba(2,197,122,.1);border:1px solid rgba(2,197,122,.3);display:flex;align-items:center;justify-content:center;margin:0 auto 20px;font-size:1.4rem}
+.success h3{font-family:'Fraunces',serif;font-size:1.8rem;font-weight:700;margin-bottom:10px}
+.success p{font-size:.85rem;color:var(--muted);font-weight:300;line-height:1.65}
+@media(max-width:900px){.g-contact{grid-template-columns:1fr}.fg-row{grid-template-columns:1fr}}
+</style></head><body>
+<svg width="0" height="0" style="position:absolute"><defs>
+<symbol id="wf" viewBox="0 0 400 400"><g fill="none" stroke="#0A5C38" stroke-width="1"><line x1="200" y1="200" x2="200" y2="20"/><line x1="200" y1="200" x2="327" y2="73"/><line x1="200" y1="200" x2="380" y2="200"/><line x1="200" y1="200" x2="327" y2="327"/><line x1="200" y1="200" x2="200" y2="380"/><line x1="200" y1="200" x2="73" y2="327"/><line x1="200" y1="200" x2="20" y2="200"/><line x1="200" y1="200" x2="73" y2="73"/><polygon points="200,164 227,177 236,207 218,230 182,230 164,207 173,177"/><polygon points="200,128 254,154 272,214 236,258 164,258 128,214 146,154"/></g></symbol>
+<symbol id="wtr" viewBox="0 0 200 200"><g fill="none" stroke="#0A5C38" stroke-width="1"><line x1="200" y1="0" x2="0" y2="200"/><line x1="200" y1="0" x2="60" y2="200"/><line x1="200" y1="0" x2="140" y2="200"/><line x1="200" y1="0" x2="200" y2="200"/><line x1="200" y1="0" x2="0" y2="60"/><line x1="200" y1="0" x2="0" y2="130"/><polyline points="40,0 20,20 0,40"/><polyline points="90,0 60,10 30,30 10,60 0,90"/><polyline points="145,0 115,22 88,48 62,76 40,106 20,138 0,170"/></g></symbol>
+<symbol id="wbl" viewBox="0 0 200 200"><g fill="none" stroke="#0A5C38" stroke-width="1"><line x1="0" y1="200" x2="200" y2="0"/><line x1="0" y1="200" x2="140" y2="0"/><line x1="0" y1="200" x2="60" y2="0"/><line x1="0" y1="200" x2="0" y2="0"/><line x1="0" y1="200" x2="200" y2="140"/><line x1="0" y1="200" x2="200" y2="70"/><polyline points="0,160 20,180 40,200"/><polyline points="0,110 10,140 30,170 60,190 90,200"/><polyline points="0,60 12,90 32,120 58,145 86,164 114,178 148,188 180,196 200,200"/></g></symbol>
+</defs></svg>
+<nav id="nav"><a href="index.html" class="logo">Public<em>Proxi</em></a><ul class="nav-links"><li><a href="search.html">Search</a></li><li><a href="how-it-works.html">How It Works</a></li><li><a href="pricing.html">Pricing</a></li><li><a href="about.html">About</a></li><li><a href="search.html" class="nav-pill">Claim Profile →</a></li></ul></nav>
+<div class="page"><div class="page-top">
+<div class="g-contact">
+  <div class="contact-left">
+    <div class="t-c-hl">
+      <div class="web-radial"><svg><use href="#wf"/></svg></div>
+      <div class="ti">
+        <div class="eyebrow">Get in Touch</div>
+        <h1 class="c-h">We're<br><em>here.</em></h1>
+        <p class="c-p">Real replies from real people. Usually same day.</p>
+      </div>
+    </div>
+    <div class="channels fu">
+      <div class="channel">
+        <div class="ch-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg></div>
+        <div><div class="ch-label">General</div><div class="ch-val">hello@publicproxi.com</div><div class="ch-note">Replies within 1 business day.</div></div>
+      </div>
+      <div class="channel">
+        <div class="ch-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg></div>
+        <div><div class="ch-label">Profile Support</div><div class="ch-val">profiles@publicproxi.com</div><div class="ch-note">Setup, ranking, verification. Same-day response.</div></div>
+      </div>
+      <div class="channel">
+        <div class="ch-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg></div>
+        <div><div class="ch-label">Enterprise & Sales</div><div class="ch-val">sales@publicproxi.com</div><div class="ch-note">Team plans and API access. We'll schedule a call.</div></div>
+      </div>
+      <div class="channel">
+        <div class="ch-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
+        <div><div class="ch-label">Press</div><div class="ch-val">press@publicproxi.com</div><div class="ch-note">Media and data enquiries. 24hr response.</div></div>
+      </div>
+    </div>
+    <div class="g-offices fu">
+      <div class="office"><div class="off-city">Lagos</div><div class="off-country">Nigeria · HQ</div><div class="off-addr">14 Adeola Odeku St<br>Victoria Island</div></div>
+      <div class="office"><div class="off-city">Nairobi</div><div class="off-country">Kenya</div><div class="off-addr">Westlands Business Park<br>Waiyaki Way</div></div>
+      <div class="office"><div class="off-city">London</div><div class="off-country">United Kingdom</div><div class="off-addr">12 Finsbury Square<br>Moorgate</div></div>
+      <div class="office" style="background:var(--signal)"><div class="off-city" style="color:var(--void)">Remote</div><div class="off-country" style="color:rgba(2,48,30,.6)">Global Team</div><div class="off-addr" style="color:rgba(2,48,30,.65)">Across Africa, Europe & the Americas.</div></div>
+    </div>
+  </div>
+  <!-- FORM -->
+  <div class="t-form fu">
+    <div class="wc wc-tr"><svg width="100%" height="100%"><use href="#wtr"/></svg></div>
+    <div id="form-area" style="position:relative;z-index:1">
+      <div class="form-h">Send a Message</div>
+      <p class="form-sub">Goes directly to the right person.</p>
+      <div class="topic-tabs">
+        <div class="ttab on" onclick="sel(this)">General</div>
+        <div class="ttab" onclick="sel(this)">My Profile</div>
+        <div class="ttab" onclick="sel(this)">Hiring</div>
+        <div class="ttab" onclick="sel(this)">Billing</div>
+        <div class="ttab" onclick="sel(this)">Enterprise</div>
+        <div class="ttab" onclick="sel(this)">Press</div>
+      </div>
+      <div class="fg-row">
+        <div class="fg"><label>First Name</label><input type="text" placeholder="Emeka"/></div>
+        <div class="fg"><label>Last Name</label><input type="text" placeholder="Obi"/></div>
+      </div>
+      <div class="fg"><label>Email</label><input type="email" placeholder="you@example.com"/></div>
+      <div class="fg"><label>You are…</label>
+        <select><option value="">Select…</option><option>A professional building my profile</option><option>A company looking to hire</option><option>Exploring the platform</option><option>Press / researcher</option><option>Other</option></select>
+      </div>
+      <div class="fg"><label>Message</label><textarea placeholder="What's on your mind?"></textarea></div>
+      <button class="sub-btn" onclick="document.getElementById('form-area').style.display='none';document.getElementById('success').style.display='block'">Send Message →</button>
+      <p class="form-note">We don't share your details. Direct to our team.</p>
+    </div>
+    <div class="success" id="success">
+      <div class="success-icon">✓</div>
+      <h3>Message sent.</h3>
+      <p>We'll reply to your email within 1 business day — usually much sooner.</p>
+      <a href="index.html" style="display:inline-block;margin-top:20px;font-size:.82rem;color:var(--signal);text-decoration:none;border-bottom:1px solid var(--signal);padding-bottom:2px">← Back to PublicProxi</a>
+    </div>
+  </div>
+</div>
+</div></div>
+<footer class="pp-footer"><div><a href="index.html" class="fl">Public<em>Proxi</em></a><p class="ft">Get your name on the search web.</p></div><div class="fc"><h4>Platform</h4><ul><li><a href="search.html">Search</a></li><li><a href="how-it-works.html">How It Works</a></li><li><a href="pricing.html">Pricing</a></li></ul></div><div class="fc"><h4>Companies</h4><ul><li><a href="post-brief.html">Post a Brief</a></li></ul></div><div class="fc"><h4>Company</h4><ul><li><a href="about.html">About</a></li><li><a href="blog.html">Blog</a></li><li><a href="contact.html">Contact</a></li></ul></div></footer>
+<div class="pp-fb"><p>© 2026 PublicProxi</p><p>No commissions. Ever.</p></div>
+<script>
+function sel(el){document.querySelectorAll('.ttab').forEach(t=>t.classList.remove('on'));el.classList.add('on')}
+const nav=document.getElementById('nav');window.addEventListener('scroll',()=>nav.classList.toggle('scrolled',scrollY>60));
+const obs=new IntersectionObserver(e=>e.forEach(x=>{if(x.isIntersecting)x.target.classList.add('on')}),{threshold:.07});document.querySelectorAll('.fu').forEach(el=>obs.observe(el));
+</script></body></html>
