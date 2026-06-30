@@ -2,6 +2,21 @@
 :root{--void:#02301E;--surface:#023D26;--lift:#024D30;--rule:#0A5C38;--signal:#F8FE06;--text:#F0EDE6;--muted:#4A9068;--deep:#02C57A;--radius:16px}
 html{scroll-behavior:smooth}
 body{background:var(--void);color:var(--text);font-family:'DM Sans',sans-serif;font-size:16px;line-height:1.5;overflow-x:hidden}
+body::before {
+    content: '';
+    display: block;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: .5;
+    background: url(./noise.webp);
+    background-repeat: repeat;
+    background-size: 257px auto;
+    pointer-events: none;
+    z-index: 999;
+}
 
 /* ── SHARED NAV ── */
 nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:center;justify-content:space-between;padding:20px 32px;transition:background .3s}
